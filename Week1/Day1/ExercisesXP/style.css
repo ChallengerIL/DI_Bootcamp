@@ -1,0 +1,41 @@
+.yellow-background {
+    background-color: yellow;
+}
+
+.center {
+    text-align: center;
+}
+
+.cat-photo {
+    border: solid 8px orange;
+    height: 250px;
+}
+
+.lion-photo {
+    border: solid 8px orange;
+    height: 250px;
+    margin-top: 50px;
+}
+
+.table-section {
+    margin: 0 auto;
+    width: 80%;
+}
+
+table {
+    text-align: center;
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid black;
+  }
+
+.first-row {
+    border-color: red;
+    color: red;
+}
+
+.second-row {
+    border: none;
+}
