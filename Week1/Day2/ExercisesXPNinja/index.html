@@ -12,16 +12,42 @@
     <title>Login Page</title>
 </head>
 <body>
-    <div class="split left">
+    <div class="left">
         <div class="centered">
             <h1>Log In</h1>
-            <input type="email" name="email" id="email" value="email">
-            <input type="text" name="password" id="password" value="password">
+            <input class="field" type="email" name="email" id="email" value="email">
+            <input class="field" type="text" name="password" id="password" value="password">
+            <div class="split">
+                <label>
+                    <input type="checkbox" name="checkbox" id="checkbox">
+                    Remember me
+                </label>
+                <a class="forgot-pass" href="#">Forgot password?</a>
+            </div>
+            <a class="login-button" href="#">Log In</a>
+            <p class="connect"><span>Or Connect with</span></p>
+            <div class="social">
+                <a href="https://web.facebook.com/developers.institute">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+                <a href="https://twitter.com/devtlv">
+                    <i class="fa-brands fa-twitter"></i>
+                </a>
+                <a href="https://github.com/ChallengerIL">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/school/developers.institute/">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+            </div>
+            <footer>
+                <p>© 2023</p>
+            </footer>
         </div>
       </div>
       
-      <div class="split right">
-        <div class="centered">
+      <div class="right">
+        <div class="wrapper">
             <i class="fa fa-light fa-user-plus fa-4x"></i>
             <h2>Hello, friend!</h2>
             <p class="register-p">Enter your personal details and start journey with us</p>

@@ -5,43 +5,41 @@
     font-family: 'Roboto', sans-serif;
 }
 
-/* Split the screen in half */
+body {
+  display: flex;
+  height: 100vh;
+}
 
-.split {
-    height: 100%;
-    width: 50%;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    overflow-x: hidden;
-    padding-top: 20px;
-  }
-  
-/* Control the left side */
 .left {
-  left: 0;
-  background-color: #fff;
-}
-
-/* Control the right side */
-.right {
-  color: #fff;
-  right: 0;
-  background-image: linear-gradient(to bottom right, #000, #9527a8);
-}
-
-/* If you want the content centered horizontally and vertically */
-.centered {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  align-items: center;
+  color: grey;
+  display: flex;
+  flex: 1;
+  justify-content: center;
   text-align: center;
 }
 
-h2 {
-  font-size: 2rem;
-  margin-top: 1rem;
+.right {
+  align-items: center;
+  background-image: linear-gradient(to bottom right, #000, #9527a8);
+  color: #fff;
+  display: flex;
+  flex:1;
+  justify-content: center;
+  text-align: center;
+}
+
+.left a {
+  color: grey;
+  text-decoration: none;
+}
+
+.left input {
+  color: grey;
+}
+
+.fa-circle-arrow-right {
+  margin-left: .2rem;
 }
 
 .register {
@@ -57,6 +55,80 @@ h2 {
   margin-bottom: 2rem;
 }
 
-.fa-circle-arrow-right {
-  margin-left: .2rem;
+h1 {
+  color: #000;
+  margin-bottom: .5rem;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-top: 1rem;
+}
+
+.wrapper {
+  max-width: 90%;
+}
+
+.centered {
+  display: flex;
+  flex-flow: column;
+  gap: 10px;
+  min-width: 80%;
+}
+
+.split {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 0;
+}
+
+.connect {
+  border-bottom: 1px solid grey; 
+  line-height: 0.1em;
+  margin: 10px 0 20px; 
+  text-align: center;
+  width: 100%;
+}
+
+.connect span {
+  background-color: #fff;
+  padding: 0 10px;
+}
+
+footer {
+  position: fixed;
+  bottom: 1rem;
+  left: 22%;
+}
+
+input[type="checkbox"] {
+  vertical-align: middle;
+  height: .9rem;
+  width: .9rem;
+  cursor: pointer;
+}
+
+label {
+  cursor: pointer;
+}
+
+.field {
+  background-color: rgb(239, 237, 237);
+  border: none;
+  padding: 1rem;
+}
+
+a.login-button {
+  background-color: #9c27b0;
+  color: #fff;
+  padding: 1rem 0;
+  margin-bottom: 1.5rem;
+}
+
+.social {
+  display: flex;
+  font-size: 2rem;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 1rem;
 }
