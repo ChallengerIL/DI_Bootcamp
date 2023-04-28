@@ -1,0 +1,151 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    align-items: center;
+    background-color: #1b1b1b;
+    display: flex;
+    justify-content: space-between;
+    height: 100px;
+    padding: 0 4rem;
+    width: 100%;
+}
+
+.logo {
+    height: 70px;
+    vertical-align: middle;
+    width: 70px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-item a {
+    color: white;
+    display: flex;
+    font-size: 1.2rem;
+    padding: 10px 10px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+#hero-section {
+    background-image: url("./images/hero.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    height: 100%;
+    min-height: 100vh;
+    width: 100%;
+    vertical-align: middle;
+}
+
+.wrapper {
+    margin: 1.5rem;
+    width: 50%;
+}
+
+h1 {
+    color: #fff;
+    font-size: 4.5rem;
+    text-transform: uppercase;
+}
+
+#hero-section p {
+    color: #fff;
+    font-size: .9rem;
+}
+
+footer {
+    align-items: center;
+    background-color: #1b1b1b;
+    display: flex;
+    justify-content: space-around;
+    height: 50px;
+    width: 100%;
+  }
+
+footer a {
+    color: #fff;
+    font-size: 1.1rem;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #4c30ff;
+}
+
+/* S */
+@media screen and (min-width:600px) {
+    h1 {
+        font-size: 35px;
+    }
+
+    nav {
+        background-color: yellow;
+    }
+
+    .nav-item a {
+        color: black;
+    }
+}
+
+/* M */
+@media screen and (min-width:768px) {
+    h1 {
+        font-size: 25px;
+    }
+
+    nav {
+        background-color: lightgreen;
+    }
+
+    .nav-item a {
+        color: black;
+    }
+}
+
+/* L */
+@media screen and (min-width:992px) {
+    nav {
+        background-color: red;
+    }
+
+    .nav-item a {
+        color: white;
+    }
+
+    .wrapper {
+        display: flex;
+        flex-direction: row-reverse;
+        width: 90%;
+    }
+
+    h1 {
+        flex: 1;
+    }
+
+    p {
+        flex: 4;
+    }
+}
+
+/* XL */
+@media screen and (min-width:1200px) {
+    nav {
+        background-color: black;
+    }
+
+    .nav-item a {
+        color: white;
+    }
+}
