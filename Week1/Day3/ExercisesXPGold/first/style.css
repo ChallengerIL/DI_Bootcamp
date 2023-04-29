@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 0;
 }
@@ -19,10 +20,55 @@ body {
 }
 
 main {
+    align-items: center;
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
+    height: 100%;
+    gap: 3rem;
+    padding: 2rem;
 }
 
+.top-section {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    width: 100%;
+}
+
+.bottom-section {
+    flex:1;
+}
+
+.title {
+    flex: 1;
+    align-self: center;
+    max-width: 33rem;
+    text-align: center;
+}
+
+.stats {
+    display: flex;
+    flex: 2;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.numbers {
+    color: #5c6ac4;
+    font-size: 2rem;
+    font-weight: 900;
+    margin: .6rem;
+}
+
+.description {
+    text-transform: uppercase;
+}
+
+.testimonials {
+    display: flex;
+}
 
 .testimonials-item img {
     border-radius: 100%;
