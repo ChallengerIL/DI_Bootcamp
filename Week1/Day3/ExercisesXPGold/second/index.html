@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Download Now</title>
+</head>
+<body>
+    <nav class="top">
+        <p>Unburden yourself from the weight of email overload!</p>
+        <div class="learn-more-button">
+            Learn more
+        </div>
+    </nav>
+    <main>
+        <div class="grid-wrapper">
+            <h1>Download now</h1>
+            <form action="POST">
+                <label for="first-name">First name*</label>
+                <label for="last-name">Last name*</label>
+                <label for="email">Email (<a href="#" target="_blank" rel="noopener noreferrer">Privacy policy</a>)*</label>
+                <input type="text" name="first-name" id="first-name">
+                <input type="text" name="last-name" id="last-name">
+                <input type="email" name="email" id="email">
+                <label for="phone">Phone number*</label>
+                <label for="website-url">Website URL*</label>
+                <label for="company-name">Company name*</label>
+                <input type="text" name="phone" id="phone">
+                <input type="url" name="website-url" id="website-url">
+                <input type="text" name="company-name" id="company-name">
+                <label for="employees-number">How many employees work there?*</label>
+                <select name="employees-number" id="employees-number">
+                    <option value="none">- Please Select -</option>
+                    <option value="small">1-10</option>
+                    <option value="medium">11-50</option>
+                    <option value="large">51+</option>
+                </select>
+                <p>Does your company sell any of the following services:</p>
+                - Web Design
+                - Online Marketing
+                - SEO/SEM
+                - Advertising agency services*
+                <!-- Dropdown selector here -->
+                <label>
+                    <input type="checkbox" name="subscribe-checkbox" id="subscribe-checkbox">
+                    Subscribe to Hubspot's marketing blog
+                </label>
+                <button class="download-button">Download now</button>
+            </form>
+        </div>
+    </main>
+</body>
+</html>
