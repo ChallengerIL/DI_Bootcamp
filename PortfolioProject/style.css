@@ -1,0 +1,282 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+* {
+    box-sizing: border-box;
+    font-family: "Raleway";
+    margin: 0;
+    padding: 0;
+}
+
+#navbar {
+    background-color: #f97300;
+    padding: 1rem;
+    position: fixed;
+    width: 100%;
+}
+
+#navbar ul {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    gap: 1rem;
+    justify-content: end;
+    list-style: none;
+}
+
+#navbar a {
+    color: #fff;
+    padding: .5rem;
+    text-decoration: none;
+}
+
+#navbar a:hover {
+    background-color: #fff;
+    color: #f97300;
+}
+
+#home-link {
+    font-size: 1.2rem;
+    margin-right: auto;
+}
+
+#home-link a:hover {
+    background-color: #f97300;
+    color: rgb(31, 31, 255);
+}
+
+header {
+    background-image: url("./images/headerback.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    min-height: 100vh;
+}
+
+.overlay {
+    background-color: rgba(255, 255, 255, .7);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 5rem;
+}
+
+.overlay p {
+    color: grey;
+    line-height: 1.5rem;
+    margin-right: 15rem;
+}
+
+@media screen and (max-width: 700px) {
+    .overlay p {
+        margin-right: 0;
+    }
+  }
+
+.see-more-button {
+    background-color: #f97300;
+    border-radius: 7px;
+    color: #fff;
+    margin-top: 1.5rem;
+    text-align: center;
+    text-decoration: none;
+    padding: 1rem;
+    width: 7rem;
+}
+
+.see-more-button:hover {
+    background-color: grey;
+}
+
+h1 {
+    color: #f97300;
+    margin-bottom: .5rem;
+}
+
+main {
+    padding: 5rem;
+}
+
+@media screen and (max-width: 700px) {
+    main {
+        padding: 1rem;
+    }
+
+    h2 {
+        padding-top: 2rem;
+    }
+  }
+
+section {
+    padding-bottom: 4rem;
+    text-align: center;
+}
+
+.about-me-flexbox-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+section h2 {
+    color:#f97300;
+    font-size: 2rem;
+    padding-bottom: 4rem;
+}
+
+.profile-photo-wrapper {
+    flex: 1;
+    margin-right: 1rem;
+}
+
+.profile-photo {
+    border-radius: 100%;
+}
+
+.profile-photo-desc {
+    color: grey;
+    margin-top: 1rem;
+}
+
+.about-me-text-wrapper {
+    border-left: 5px solid #008080;
+    color: grey;
+    flex: 3;
+    line-height: 2rem;
+    padding: 1rem;
+    padding-right: 0;
+}
+
+.about-me-text-wrapper h3 {
+    color: #008080;
+    font-size: 2rem;
+    font-weight: 100;
+}
+
+.portfolio-flex-wrapper {
+    display: flex;
+    flex-basis: 30%;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+#portfolio img {
+    height: 17rem;
+    width: 17rem;
+}
+
+.blog-flex-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.blog-item {
+    align-items: center;
+    box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    width: 17rem;
+}
+
+.blog-item-bottom-section {
+    text-align: left;
+    width: 17rem;
+}
+
+.blog-item h4, .blog-text, .blog-link {
+    padding: .5rem;;
+}
+
+.blog-item h4 {
+    color: #f97300;
+    font-size: 1.5rem;
+}
+
+.blog-item-top-section img {
+    height: 12rem;
+    width: 17rem;
+}
+
+.blog-link-section {
+    background-color: rgb(245, 245, 245);
+    border-top: 1px solid rgb(199, 199, 199);
+    padding: 1rem;
+}
+
+.blog-link {
+    color:rgb(71, 129, 236);
+    text-decoration: none;
+}
+
+.blog-link:hover {
+    color: rgb(0, 0, 129);
+}
+
+.our-team-flex-wrapper {
+    align-items: center;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.our-team-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.our-team-item img {
+    height: 12rem;
+    width: 12rem;
+}
+
+#contact {
+    border-top: 1px solid rgb(214, 214, 214);
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.contact-left {
+    align-items: center;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.contact-title {
+    color:#f97300;
+    font-size: 2rem;
+}
+
+.social-links a {
+    color: #f97300;
+    font-size: 2rem;
+    margin: .2rem;
+}
+
+.social-links a:hover {
+    color: blue;
+}
+
+.contact-right {
+    flex: 3;
+    padding: 2rem;
+}
+
+.btn-primary {
+    background-color: #f97300;
+    border: none;;
+    width: 100%;
+}
+
+.btn-primary:hover {
+    background-color: #f97300;
+}
