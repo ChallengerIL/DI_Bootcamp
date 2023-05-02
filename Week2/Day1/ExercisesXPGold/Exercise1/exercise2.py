@@ -10,3 +10,4 @@ while True:
     for season, number in seasons.items():
         if month in number:
             print(season)
+            
