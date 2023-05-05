@@ -26,10 +26,11 @@ class Dog:
             return f"{other_dog.name} won the fight with {self.name}"
 
 
-dog_1 = Dog("Fido", 2, 10)
-dog_2 = Dog("Milo", 3, 15)
-dog_3 = Dog("Buddy", 10, 19)
+if __name__ == "__main__":
+    dog_1 = Dog("Fido", 2, 10)
+    dog_2 = Dog("Milo", 3, 15)
+    dog_3 = Dog("Buddy", 10, 19)
 
-print(dog_1.bark())
-print(dog_2.run_speed())
-print(dog_3.fight(dog_1))
+    print(dog_1.bark())
+    print(dog_2.run_speed())
+    print(dog_3.fight(dog_1))
