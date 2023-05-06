@@ -24,8 +24,12 @@ class Family:
         self.last_name = 'Smith'
 
     def born(self, **kwargs):
-        new_member = {"name": kwargs['name'], "age": 0, "gender": kwargs['gender'], "is_child": True}
+        new_member = {key: value for key, value in kwargs.items()}
+        new_member['is_child'] = True
+        new_member['age'] = 0
+
         self.members.append(new_member)
+
         print('Congratulations! A new family member has been born!')
 
     def is_18(self, name):
