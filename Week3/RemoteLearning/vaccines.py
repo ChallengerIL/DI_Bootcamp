@@ -47,8 +47,9 @@
 
 from faker import Faker
 from faker.providers import DynamicProvider
+from random import randint
 
-
+POPULATION = 1000
 blood_type_provider = DynamicProvider(
      provider_name="blood_type",
      elements=["A", "B", "AB", "O"],
@@ -67,6 +68,7 @@ class Human:
 
     def add_family_member(self, person):
         self.family.append(person)
+        person.family.append(self)
 
 
 class Queue:
@@ -101,27 +103,25 @@ class Queue:
         return None
 
     def sort_by_age(self):
+        # Young
         for person in self.humans:
             if person.age < 18:
                 self.humans.insert(0, self.humans.pop(self.humans.index(person)))
 
+        # Elderly
         for person in self.humans:
             if person.age > 60:
                 self.humans.insert(0, self.humans.pop(self.humans.index(person)))
 
+        # Priority
         for person in self.humans:
             if person.priority:
                 self.humans.insert(0, self.humans.pop(self.humans.index(person)))
 
-        # self.humans = sorted(self.humans, key=lambda h: (h.priority), reverse=True)
-        # self.humans = sorted(
-        #     self.humans, key=lambda item: (not item.priority())
-        # )
-
     def rearrange_queue(self):
         for i in range(1, len(self.humans)-1):
-            if self.humans[i-1] in self.humans[i].family:
-                self.humans.insert(i+1, self.humans.pop(i))
+            if self.humans[i] in self.humans[i-1].family:
+                self.swap(self.humans[i], self.humans[i+1])
 
 
 if __name__ == "__main__":
@@ -129,11 +129,13 @@ if __name__ == "__main__":
     fake = Faker()
     fake.add_provider(blood_type_provider)
 
-    for _ in range(30):
+    for _ in range(POPULATION):
         human = Human(
             id_number=fake.ssn(), name=fake.name(), age=fake.pyint(max_value=120), priority=fake.pybool(),
             blood_type=fake.blood_type()
         )
+
+        queue.add_person(human)
 
     # SWAPPING
     # print(queue.humans[0].name)
@@ -149,27 +151,18 @@ if __name__ == "__main__":
     # print(queue.get_next_blood_type("AB").name)
 
     # SORT BY AGE
-    [print(human.priority) for human in queue.humans[:50]]
-    print()
-    queue.sort_by_age()
-    [print(human.priority) for human in queue.humans[:50]]
+    # [print(human.name, human.age, human.priority) for human in queue.humans[:50]]
+    # print()
+    # queue.sort_by_age()
+    # [print(human.name, human.age, human.priority) for human in queue.humans[:50]]
+
+    # ADD FAMILY MEMBER
+    # for idx in range(len(queue.humans)-1):
+    #     if randint(0, 20) == 0:
+    #         queue.humans[idx].add_family_member(queue.humans[idx+1])
 
     # REARRANGE QUEUE
+    # [print(human.name, queue.humans.index(human)) for human in queue.humans if len(human.family) > 0]
+    # print()
     # queue.rearrange_queue()
-
-    # print(queue.get_next())
-
-    # human4.add_family_member(human3)
-    #
-    # queue.add_person(human1)
-    # queue.add_person(human2)
-    # queue.add_person(human3)
-    # queue.add_person(human4)
-    #
-    # [print(human.family) for human in queue.humans]
-
-    # queue.sort_by_age()
-    # queue.rearrange_queue()
-
-    # print(queue.get_next())
-    # print(queue.get_next())
+    # [print(human.name, queue.humans.index(human)) for human in queue.humans if len(human.family) > 0]
