@@ -70,15 +70,6 @@ class Circle:
 
         return self.circles_list
 
-    def am_i_bigger(self, other):
-        if isinstance(other, Circle):
-            if self.radius > other.radius:
-                return True
-
-            return False
-        else:
-            return False
-
     def __str__(self):
         return f'Circle with radius {self.radius}'
 
@@ -91,6 +82,18 @@ class Circle:
     def __eq__(self, other):
         if isinstance(other, Circle):
             return self.radius == other.radius
+        else:
+            return False
+
+    def __gt__(self, other):
+        if isinstance(other, Circle):
+            return self.radius > other.radius
+        else:
+            return False
+
+    def __lt__(self, other):
+        if isinstance(other, Circle):
+            return self.radius < other.radius
         else:
             return False
 
@@ -114,5 +117,6 @@ if __name__ == '__main__':
     print(circle_1 + circle_2 == circle_3)
     print(circle_1 == circle_2)
 
-    print(circle_1.am_i_bigger(circle_2))
-    print(circle_3.am_i_bigger(circle_2))
+    print(circle_1 > circle_2)
+    print(circle_3 > circle_2)
+    print(circle_3 < circle_2)

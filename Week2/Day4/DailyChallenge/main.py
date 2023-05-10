@@ -56,5 +56,3 @@ for col in range(COLUMNS):
 no_digits_string = "".join(no_digits_list)
 
 print(re.sub('[^A-Za-z0-9]+', ' ', no_digits_string))
-
-# The instructions for this exercise are frustrating.
