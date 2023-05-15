@@ -163,7 +163,7 @@ class Zoo:
         self.animals.sort()
 
         res = []
-        for sub in ramat_gan_safari.animals:
+        for sub in self.animals:
             ele = next((x for x in res if util_func(sub, x[0])), [])
             if not ele:
                 res.append(ele)
