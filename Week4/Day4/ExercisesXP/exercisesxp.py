@@ -41,4 +41,61 @@
 
 # Here’s an example of the menu shown to the user:
 
+import psycopg2
 
+HOSTNAME = 'localhost'
+USERNAME = 'postgres'
+PASSWORD = 'root'
+DATABASE = 'menu_editor'
+TABLE_NAME = 'menu_items'
+
+
+def run_query(query):
+    connection = psycopg2.connect(host=HOSTNAME, user=USERNAME, password=PASSWORD, dbname=DATABASE)
+    cursor = connection.cursor()
+    cursor.execute(query)
+    connection.commit()
+    results = cursor.fetchall()
+    connection.close()
+    return results
+
+
+class MenuItem:
+
+    MENU_ITEMS = []
+
+    def __init__(self, name, price):
+        self.name = name
+        self.price = price
+        self.MENU_ITEMS.append(self)
+
+    def save(self):
+        try:
+            return run_query(f"INSERT INTO {TABLE_NAME}(name, price) VALUES ('{self.name}', {self.price})"
+                             f" RETURNING item_id;")
+        except psycopg2.errors.UniqueViolation:
+            print("Item with the same name already exists in the menu.")
+
+    def delete(self):
+        return run_query(f"DELETE FROM  {TABLE_NAME} WHERE name = '{self.name}' RETURNING item_id;")
+
+    def update(self, name, price):
+        return run_query(f"UPDATE {TABLE_NAME} SET name='{name}', price={price} WHERE name = '{self.name}'"
+                         f" RETURNING item_id;")
+
+    @classmethod
+    def all(cls):
+        return cls.MENU_ITEMS
+
+    @classmethod
+    def get_by_name(cls, name):
+        return next((menu_item for menu_item in cls.MENU_ITEMS if menu_item.name == name), None)
+
+
+if __name__ == '__main__':
+    item = MenuItem('Burger', 35)
+    item.save()
+    item.delete()
+    item.update('Veggie Burger', 37)
+    item2 = MenuItem.get_by_name('Beef Stew')
+    items = MenuItem.all()
