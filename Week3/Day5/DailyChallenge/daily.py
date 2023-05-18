@@ -22,7 +22,7 @@
 # should have a shuffle method which makes sure the deck of cards has all 52 cards and then rearranges them randomly.
 # should have a method called deal which deals a single card from the deck. After a card is dealt, it should be removed from the deck.
 
-from random import shuffle
+import random
 
 
 class Card:
@@ -34,7 +34,7 @@ class Card:
 
 class Deck:
 
-    SUITS = ['CLUB', 'DIAMOND', 'Heart', 'SPADE']
+    SUITS = ['Clubs', 'Diamonds', 'Hearts', 'Spades']
     RANKS = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
 
     def __init__(self):
@@ -49,7 +49,7 @@ class Deck:
             for rank in self.RANKS:
                 self.cards.append(Card(suit, rank))
 
-        shuffle(self.cards)
+        random.shuffle(self.cards)
 
 
 if __name__ == '__main__':
