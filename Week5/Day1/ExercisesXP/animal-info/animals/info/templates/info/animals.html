@@ -1,0 +1,17 @@
+{% extends 'info/base.html' %}
+{% block content %}
+    {% for animal in animals %}
+        {% if animal.id == pk %}
+            <h1>{{ animal.name }}</h1>
+            <p>Legs: {{ animal.legs }}</p>
+            <p>Weight: {{ animal.weight }}</p>
+            <p>Height: {{ animal.height }}</p>
+            <p>Speed: {{ animal.speed }}</p>
+            {% for family in families %}
+                {% if family.id == animal.family %}
+                    <p>Family: {{ family.name }}</p>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    {% endfor %}
+{% endblock content %}

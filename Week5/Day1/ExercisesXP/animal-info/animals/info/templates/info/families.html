@@ -1,0 +1,10 @@
+{% extends 'info/base.html' %}
+{% block content %}
+    {% for animal in animals %}
+        <ul>
+            {% if animal.family == pk %}
+                <li>{{ animal.name }}</li>
+            {% endif %}
+        </ul>
+    {% endfor %}
+{% endblock content %}
