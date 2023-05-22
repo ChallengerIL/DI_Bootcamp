@@ -12,14 +12,14 @@ def animals(request):
 
 def animal(request, pk):
     context = {
-        'animal': Animal.objects.filter(id=pk).first(),
+        'animal': Animal.objects.get(id=pk),
     }
     return render(request, 'info/animal.html', context)
 
 
 def family(request, pk):
     context = {
-        'family': Family.objects.filter(id=pk).first(),
+        'family': Family.objects.get(id=pk),
         'animals': Animal.objects.filter(family=pk),
     }
     return render(request, 'info/family.html', context)
