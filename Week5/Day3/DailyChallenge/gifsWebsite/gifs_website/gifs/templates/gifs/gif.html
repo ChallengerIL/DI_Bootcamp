@@ -1,0 +1,14 @@
+{% extends 'gifs/base.html' %}
+
+{% block content %}
+    <h1>{{ gif.title }}</h1>
+    <img src="{{ gif.url }}" alt="{{ gif.title }}">
+    <p>Uploaded by: {{ gif.uploader_name }}</p>
+    <p>Date: {{ gif.created_at }}</p>
+    <p>Likes: {{ gif.likes }}</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" name="like" class="btn btn-success">Like</button>
+        <button type="submit" name="dislike" class="btn btn-danger">Dislike</button>
+    </form>
+{% endblock content %}
