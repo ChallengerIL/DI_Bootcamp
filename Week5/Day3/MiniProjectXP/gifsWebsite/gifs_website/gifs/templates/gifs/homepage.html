@@ -1,0 +1,10 @@
+{% extends 'gifs/base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="flex-container">
+        {% for gif in gifs %}
+            <a href="{% url 'gif' gif.id %}"><img src="{{ gif.url }}" alt="{{ gif.title }}"></a>
+        {% endfor %}
+    </div>
+{% endblock content %}
