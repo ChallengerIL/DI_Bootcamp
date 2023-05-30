@@ -1,0 +1,30 @@
+{% extends 'todo/base.html' %}
+<!--{% load static %}-->
+
+{% block content %}
+    <div class="container">
+        <ol>
+            {% for todo in todos %}
+                <li>
+                    <h3>{{ todo.title }}</h3>
+                    <p>{{ todo.details }}</p>
+                    <p>Created on: {{ todo.date_creation }}</p>
+                    <p>Deadline: {{ todo.deadline_date }}</p>
+                    {% if todo.date_completion %}
+                        <p>Completed on: {{ todo.date_completion }}</p>
+                    {% endif %}
+                    <p>Category: {{ todo.category }}</p>
+                    <form action="{% url 'todo_done' todo.id %}" method="post">
+                        {% csrf_token %}
+                        {% if todo.has_been_done %}
+                            <button type="submit" name="undone" class="btn btn-success">Done</button>
+                        {% else %}
+                            <button type="submit" name="done" class="btn btn-secondary">Done</button>
+                        {% endif %}
+                    </form>
+                    <br>
+                </li>
+            {% endfor %}
+        </ol>
+    </div>
+{% endblock content %}

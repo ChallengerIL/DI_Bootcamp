@@ -27,11 +27,6 @@ class GifForm(forms.ModelForm):
             'categories': forms.MultipleChoiceField(),
         }
 
-    # def __init__(self, *args, **kwargs):
-    #     super(GifForm, self).__init__(*args, **kwargs)
-    #     choices = getChoices(letter)
-    #     self.fields['categories'].queryset = choices
-
 
 class CategoryForm(forms.ModelForm):
 
