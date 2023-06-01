@@ -1,0 +1,15 @@
+{% extends 'rent/base.html' %}
+
+{% block content %}
+
+    <div class="container">
+        <h1>Add a new Rental</h1>
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="form-group">
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
+{% endblock content %}

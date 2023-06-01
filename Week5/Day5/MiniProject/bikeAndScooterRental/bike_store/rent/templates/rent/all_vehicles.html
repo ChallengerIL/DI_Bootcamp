@@ -1,0 +1,18 @@
+{% extends 'rent/base.html' %}
+
+{% block content %}
+    <div class="container">
+        <h1>All vehicles</h1>
+        <ol>
+            {% for vehicle, available in vehicles_dict.items %}
+                <li><a href="{% url 'vehicle' vehicle.id %}">{{ vehicle }}</a>
+                    {% if available %}
+                        <span class="green">Available</span>
+                    {% else %}
+                        <span class="red">Rented</span>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ol>
+    </div>
+{% endblock content %}

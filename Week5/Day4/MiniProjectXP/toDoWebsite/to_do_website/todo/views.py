@@ -15,10 +15,6 @@ def add_todo(request):
     if request.method == "POST":
         form = TodoForm(request.POST)
 
-        # print(form.is_valid())
-        # for field in form:
-        #     print("Field Error:", field.name, field.errors)
-
         if form.is_valid():
             form.save()
 
