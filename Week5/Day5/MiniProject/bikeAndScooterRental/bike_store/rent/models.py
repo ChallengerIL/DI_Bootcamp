@@ -1,4 +1,5 @@
 from django.db import models
+from faker.providers import address
 from phonenumber_field.modelfields import PhoneNumberField
 
 
@@ -64,3 +65,19 @@ class RentalRate(models.Model):
 
     def __str__(self):
         return f"{self.daily_rate} | {self.vehicle_type} | {self.vehicle_size}"
+
+
+class Address(models.Model):
+
+    address1 = models.CharField(max_length=300)
+    address2 = models.CharField(max_length=300)
+    city = models.CharField(max_length=100)
+    country = models.CharField(max_length=100)
+    postal_code = models.IntegerField()
+
+
+class RentalStation(models.Model):
+
+    name = models.CharField(max_length=100)
+    capacity = models.IntegerField()
+    address = models.ForeignKey(Address, related_name='address', on_delete=models.CASCADE)

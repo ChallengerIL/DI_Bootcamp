@@ -1,0 +1,12 @@
+{% extends 'rent/base.html' %}
+
+{% block content %}
+    <div class="container">
+        <h1>All customers</h1>
+        <ol>
+            {% for customer in customers %}
+                <li><a href="{% url 'customer' customer.id %}">{{ customer }}</a></li>
+            {% endfor %}
+        </ol>
+    </div>
+{% endblock content %}

@@ -14,7 +14,7 @@ def index(request):
 def all_rentals(request):
     context = {
         'title': "All Rentals",
-        'rentals': Rental.objects.all(),
+        'rentals': Rental.objects.order_by('return_date'),
     }
 
     return render(request, 'rent/all_rentals.html', context)
@@ -49,6 +49,15 @@ def add_rental(request):
     return render(request, 'rent/add_rental.html', {"form": form})
 
 
+def all_customers(request):
+    context = {
+        'title': "All customers",
+        'customers': Customer.objects.order_by('first_name'),
+    }
+
+    return render(request, 'rent/all_customers.html', context)
+
+
 def customer(request, pk):
     chosen_customer = Customer.objects.get(id=pk)
     rentals = Rental.objects.filter(customer=chosen_customer)
@@ -77,16 +86,18 @@ def add_customer(request):
 
 
 def all_vehicles(request):
-    vehicles = Vehicle.objects.all()
+    # vehicles = Vehicle.objects.all()
+    vehicles = Vehicle.objects.all().order_by('vehicle_type')
 
-    vehicles_dict = dict()
+    availability_dict = dict()
 
     for v in vehicles:
-        vehicles_dict[v] = check_availability(v)
+        availability_dict[v] = check_availability(v)
 
     context = {
         'title': 'All vehicles',
-        'vehicles_dict': vehicles_dict,
+        'vehicles': vehicles,
+        'available': availability_dict,
     }
 
     return render(request, 'rent/all_vehicles.html', context)

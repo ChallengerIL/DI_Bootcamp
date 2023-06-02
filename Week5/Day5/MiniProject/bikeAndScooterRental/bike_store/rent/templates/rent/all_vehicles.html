@@ -1,18 +1,24 @@
 {% extends 'rent/base.html' %}
+{% load custom_tags %}
 
 {% block content %}
+    {% regroup vehicles by vehicle_type as vehicles_list %}
+
     <div class="container">
         <h1>All vehicles</h1>
-        <ol>
-            {% for vehicle, available in vehicles_dict.items %}
-                <li><a href="{% url 'vehicle' vehicle.id %}">{{ vehicle }}</a>
-                    {% if available %}
-                        <span class="green">Available</span>
-                    {% else %}
-                        <span class="red">Rented</span>
-                    {% endif %}
-                </li>
-            {% endfor %}
-        </ol>
+        {% for vehicle_group in vehicles_list %}
+                <h2>{{ vehicle_group.grouper }}s</h2>
+                <ol>
+                    {% for vehicle in vehicle_group.list %}
+                        <li><a href="{% url 'vehicle' vehicle.id %}">{{ vehicle }}</a>
+                            {% if available|get_item:vehicle %}
+                                <span class="green">Available</span>
+                            {% else %}
+                                <span class="red">Rented</span>
+                            {% endif %}
+                        </li>
+                    {% endfor %}
+                </ol>
+        {% endfor %}
     </div>
 {% endblock content %}

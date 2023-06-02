@@ -52,6 +52,23 @@ class RentalForm(forms.ModelForm):
         self.fields['vehicle'].queryset = get_available_vehicles()
 
 
+# class NewRentalForm(forms.ModelForm):
+#
+#     class Meta:
+#         model = Rental
+#         fields = '__all__'
+#
+#         widgets = {
+#             'rental_date': DateInput(),
+#             'return_date': DateInput(),
+#         }
+#
+#     def __init__(self, *args, **kwargs):
+#         super().__init__(*args, **kwargs)
+#         self.fields['customer'] = forms.IntegerField()
+#         self.fields['vehicle'] = forms.IntegerField()
+
+
 class VehicleForm(forms.ModelForm):
 
     class Meta:
