@@ -1,0 +1,70 @@
+{% extends 'partials/base.html' %}
+
+{% block content %}
+    {% include "partials/navbar.html" %}
+
+    {% if messages %}
+         {% for message in messages %}
+             <div class="text-center alert alert-{{ message.tags }}">
+                 {{ message|safe }}
+             </div>
+         {% endfor %}
+     {% endif %}
+
+
+    {% if user.is_authenticated %}
+        <div class="container">
+            <h1>New Films</h1>
+            <div class="row">
+                {% for film in films %}
+                    <div class="col-sm-4">
+                        <div class="card" style="width: 18rem;">
+                          <div class="card-body">
+                              <h5 class="card-title"><a href="{% url 'film_detail' film.id %}">{{ film.title }}</a> BY
+                                  {% for director in film.director.all %}
+                                    {{ director }}
+                                  {% endfor %}
+                              </h5>
+                            <p class="card-text">Date: {{ film.release_date }}</p>
+                            <p class="card-text">Category:
+                                {% for category in film.category.all %}
+                                    {{ category }}
+                                  {% endfor %}
+                            </p>
+                            <p class="card-text">Country: {{ film.created_in_country }}</p>
+                              <p>Producers:</p>
+                            {% for producer in film.producers.all %}
+                                <p>{{ producer.first_name }} {{ producer.last_name }}</p>
+                            {% endfor %}
+                            {% if film.reviews.count > 0 %}
+                                <p class="card-text">Reviews:</p>
+                                <ul>
+                                    {% for review in film.reviews.all %}
+                                        <li>{{ review.review_text }}</li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+                            <p><a href="{% url 'add_review' %}" class="card-link">Add a Review</a></p>
+                            {% if user.is_superuser %}
+                                <p><a href="{% url 'update_film' film.id %}" class="card-link">Update Film</a></p>
+                                {% for director in film.director.all %}
+                                    <p><a href="{% url 'update_director' director.id %}" class="card-link">Update Director {{ director.first_name }} {{ director.last_name }}</a></p>
+                                {% endfor %}
+                                <p><a href="{% url 'delete_film' film.id %}" class="card-link">Delete Film</a></p>
+                            {% endif %}
+                            <form action="{% url 'favorite_film' film.id %}" method="POST">
+                                {% csrf_token %}
+                                {% if film in user.favorite_films.all %}
+                                    <button class="btn btn-secondary" type="submit">Remove from Favorites</button>
+                                {% else %}
+                                    <button class="btn btn-primary" type="submit">Add to Favorites</button>
+                                {% endif %}
+                            </form>
+                          </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+{% endblock content %}
