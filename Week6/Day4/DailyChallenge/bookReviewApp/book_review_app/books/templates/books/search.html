@@ -1,0 +1,34 @@
+{% extends 'books/partials/base.html' %}
+
+{% block content %}
+    {% include "books/partials/navbar.html" %}
+    <div class="container">
+        <h1>Book Search</h1>
+        <form method="GET">
+            {{ form.as_p }}
+            <div class="form-group">
+                <label>
+                    <input type="text" name="q" placeholder="Search..">
+                </label>
+                <input type="submit" value="Search">
+            </div>
+        </form>
+        {% for book in books %}
+            <section class="search-result-item">
+                <a class="image-link" href="{% url 'book' book.slug %}"><img class="image" src="{{ book.thumbnail_url }}" alt="{{ book.title }}">
+                </a>
+                <div class="search-result-item-body">
+                    <div class="row">
+                        <div class="col-sm-9">
+                            <h4 class="search-result-item-heading"><a href="{% url 'book' book.slug %}">{{ book.title }}</a></h4>
+                            <p class="info"><strong>Author:</strong> {{ book.author }}</p>
+                            <p class="description"><strong>Description:</strong> {{ book.description|slice:":250" }}...</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        <br>
+        {% endfor %}
+
+    </div>
+{% endblock content %}
