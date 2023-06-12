@@ -23,6 +23,16 @@ class EmployeeCreateAPIView(generics.CreateAPIView):
     serializer_class = EmployeeSerializer
 
 
+class ProjectListAPIView(generics.ListAPIView):
+    queryset = Project.objects.all()
+    serializer_class = ProjectSerializer
+
+
+class ProjectCreateAPIView(generics.CreateAPIView):
+    queryset = Project.objects.all()
+    serializer_class = ProjectSerializer
+
+
 class ProjectRetrieveAPIView(generics.RetrieveAPIView):
     queryset = Project.objects.all()
     serializer_class = ProjectSerializer
@@ -36,6 +46,16 @@ class ProjectUpdateAPIView(generics.UpdateAPIView):
 class ProjectDestroyAPIView(generics.DestroyAPIView):
     queryset = Project.objects.all()
     serializer_class = ProjectSerializer
+
+
+class TaskListAPIView(generics.ListAPIView):
+    queryset = Task.objects.all()
+    serializer_class = TaskSerializer
+
+
+class TaskCreateAPIView(generics.CreateAPIView):
+    queryset = Task.objects.all()
+    serializer_class = TaskSerializer
 
 
 class TaskRetrieveAPIView(generics.RetrieveAPIView):
