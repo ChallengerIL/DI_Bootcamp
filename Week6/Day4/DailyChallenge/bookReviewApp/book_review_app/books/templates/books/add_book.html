@@ -1,0 +1,15 @@
+{% extends 'books/partials/base.html' %}
+
+{% block content %}
+    {% include "books/partials/navbar.html" %}
+    <div class="container">
+        <h1>Add Book</h1>
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="form-group">
+                <input type="submit" value="Add">
+            </div>
+        </form>
+    </div>
+{% endblock content %}

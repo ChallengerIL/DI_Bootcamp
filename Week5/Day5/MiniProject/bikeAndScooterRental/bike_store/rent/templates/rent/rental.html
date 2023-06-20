@@ -1,0 +1,17 @@
+{% extends 'rent/base.html' %}
+
+{% block content %}
+    <div class="container">
+        <h1>Rental #{{ rental.id }}</h1>
+        <p>Customer: <a href="{% url 'customer' rental.customer.id %}">{{ rental.customer }}</a></p>
+        <p>Vehicle: <a href="{% url 'vehicle' rental.vehicle.id %}">{{ rental.vehicle }}</a></p>
+        <p>Rental date: {{ rental.rental_date }}</p>
+        <p>Return date: {{ rental.return_date }}</p>
+        {% if not rental.return_date %}
+            <form action="{% url 'rental' rental.id %}" method="post">
+                {% csrf_token %}
+                <button type="submit" name="undone" class="btn btn-success">Return</button>
+            </form>
+        {% endif %}
+    </div>
+{% endblock content %}

@@ -1,0 +1,11 @@
+{% extends 'rent/base.html' %}
+
+{% block content %}
+    <div class="container">
+        <h1>Vehicle #{{ vehicle.id }}</h1>
+        <p>Vehicle type: {{ vehicle.vehicle_type }}</p>
+        <p>Vehicle Size: {{ vehicle.vehicle_size }}</p>
+        <p>Date created: {{ vehicle.date_created }}</p>
+        <p>Real cost: {{ vehicle.real_cost }}</p>
+    </div>
+{% endblock content %}

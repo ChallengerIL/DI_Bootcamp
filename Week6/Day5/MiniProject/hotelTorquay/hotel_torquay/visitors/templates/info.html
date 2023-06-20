@@ -1,0 +1,34 @@
+{% extends 'partials/base.html' %}
+{% load static %}
+
+{% block content %}
+    {% include "partials/navbar.html" %}
+
+    <header>
+      <h1>Welcome to Our Hotel</h1>
+    </header>
+
+    <div class="container">
+      <div class="image-container">
+        <img src="{% static 'hotel.jpg' %}" class="info-image" alt="Hotel Image">
+      </div>
+
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ultricies ipsum vitae tellus consequat, ac cursus purus eleifend. In condimentum fringilla lacus non commodo. Etiam dignissim nunc elit, vel consequat neque efficitur non. Suspendisse consequat nisl nec tristique luctus. Mauris pretium diam sed enim convallis, non tempus libero bibendum.</p>
+
+      <p>Proin viverra augue et suscipit sagittis. Integer ut neque id nulla suscipit lobortis at eget lorem. Curabitur tincidunt lectus in magna congue commodo. Vestibulum vel aliquet nisi. In efficitur ipsum a facilisis viverra. Vivamus a lacinia enim. Donec sit amet justo tortor. Fusce ac dignissim lectus. Curabitur fringilla semper ante, a tincidunt tellus tristique ut. In posuere venenatis rhoncus.</p>
+
+      <div class="image-container">
+        <img src="{% static 'pool.jpg' %}" class="info-image" alt="Pool Image">
+      </div>
+
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ultricies ipsum vitae tellus consequat, ac cursus purus eleifend. In condimentum fringilla lacus non commodo. Etiam dignissim nunc elit, vel consequat neque efficitur non. Suspendisse consequat nisl nec tristique luctus. Mauris pretium diam sed enim convallis, non tempus libero bibendum.</p>
+
+      <p>Proin viverra augue et suscipit sagittis. Integer ut neque id nulla suscipit lobortis at eget lorem. Curabitur tincidunt lectus in magna congue commodo. Vestibulum vel aliquet nisi. In efficitur ipsum a facilisis viverra. Vivamus a lacinia enim. Donec sit amet justo tortor. Fusce ac dignissim lectus. Curabitur fringilla semper ante, a tincidunt tellus tristique ut. In posuere venenatis rhoncus.</p>
+
+      <p>Don't miss the chance to experience our exceptional services and amenities!</p>
+
+      <div>
+        <a class="booking-link" href="{% url 'booking' %}">Book Now</a>
+      </div>
+    </div>
+{% endblock content %}

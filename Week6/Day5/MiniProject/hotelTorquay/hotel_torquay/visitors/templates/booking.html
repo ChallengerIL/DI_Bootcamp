@@ -1,0 +1,153 @@
+{% extends 'partials/base.html' %}
+{% load static %}
+
+{% block content %}
+    {% include "partials/navbar.html" %}
+
+    {% if messages %}
+         {% for message in messages %}
+             <div class="text-center alert alert-{{ message.tags }}">
+                 {{ message|safe }}
+             </div>
+         {% endfor %}
+    {% endif %}
+
+	<section class="search-container">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3">
+<!--					<div class="row my-3">-->
+<!--						<div class="col-sm-12 map-container-btn text-center">-->
+<!--							<input name="map" id="" class="btn btn-outline-secondary map-btn" type="button" value="map">-->
+<!--						</div>-->
+<!--					</div>-->
+					<div class="row mt-3 mb-3 justify-content-between">
+						<div class="filter-card">
+							<h5>Filter</h5>
+							<form action="" method="POST">
+								{% csrf_token %}
+								<div class="row form-group">
+									<div class="col-md-12">
+										Check in
+										<p>
+											{{ form.check_in }}
+										</p>
+									</div>
+									<div class="col-md-12">
+										Check out
+										<p>
+											{{ form.check_out }}
+										</p>
+									</div>
+									<div class="col-md-12">
+										Number of guests
+										<p>
+											{{ form.guests_num }}
+										</p>
+									</div>
+								</div>
+								<div class="row form-group">
+									<div class="col-md-12">
+										<input type="submit" class="btn btn-primary btn-block" value="Search">
+									</div>
+								</div>
+							</form>
+						</div>
+
+					</div>
+				</div>
+
+
+
+				<div class="col-lg-9  px-4">
+<!--					<div class="row mt-3">-->
+<!--						<div class="col-md-6 align-self-center">-->
+<!--							<p class="m-0">-->
+<!--&lt;!&ndash;								<b>{{ rooms.count }}</b> out of {{ rooms_total }}</p>&ndash;&gt;-->
+<!--								Total rooms: {{ total_rooms }}-->
+<!--							</p>-->
+<!--						</div>-->
+<!--						<div class="col-md-6">-->
+<!--							<div class="form-inline">-->
+<!--								<label class="m-4" for="exampleFormControlSelect1">Sort by</label>-->
+<!--								<select class="form-control" id="exampleFormControlSelect1">-->
+<!--									<option>Recommended</option>-->
+<!--									<option>2</option>-->
+<!--									<option>3</option>-->
+<!--									<option>4</option>-->
+<!--									<option>5</option>-->
+<!--								</select>-->
+<!--							</div>-->
+
+<!--						</div>-->
+<!--					</div>-->
+
+					{% for room in rooms %}
+						<div class="row search-card-result">
+							<div class="col-md-3">
+								<img class="img-fluid" src="{% static 'room-image.jpg' %}" alt="Hotel room image">
+							</div>
+							<div class="col-md-5">
+								<h5>{{ room.get_room_type_display }}-room</h5>
+								<p>Room #: {{ room.room_number }}</p>
+							</div>
+							<div class="col-md-2 border-left text-center more-offers">
+								<p>${{ room.price }}/day</p>
+							</div>
+							<div class="col-md-2 border-left text-center more-offers">
+								<a href="{% url 'order' room.id %}">
+									<div class="btn btn-success">Book</div>
+								</a>
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+
+		</div>
+	</section>
+
+<!--	<section class="py-4">-->
+<!--		<div class="container">-->
+<!--			<div class="row justify-content-center">-->
+<!--				<nav aria-label="Page navigation example">-->
+<!--					{% if is_paginated %}-->
+<!--					  <ul class="pagination">-->
+<!--						{% if page_obj.has_previous %}-->
+<!--						<li class="page-item">-->
+<!--						  <a class="page-link" href="?page={{page_obj.previous_page_number}}"-->
+<!--							>&laquo;</a-->
+<!--						  >-->
+<!--						</li>-->
+<!--						{% else %}-->
+<!--						<li class="page-item disabled">-->
+<!--						  <a class="page-link" href="#">&laquo;</a>-->
+<!--						</li>-->
+<!--						{% endif %}-->
+<!--						{% for i in paginator.page_range %}-->
+<!--							{% if page_obj.number == i %}-->
+<!--								<li class="page-item"><a class="page-link active">{{ i }}</a></li>-->
+<!--							{% else %}-->
+<!--								<li class="page-item">-->
+<!--								  <a class="page-link" href="?page={{ i }}">{{ i }}</a>-->
+<!--								</li>-->
+<!--							{% endif %}-->
+<!--						{% endfor %}-->
+<!--						{% if page_obj.has_next %}-->
+<!--							<li class="page-item">-->
+<!--							  <a href="?page={{page_obj.next_page_number}}" class="page-link"-->
+<!--								>&raquo;</a-->
+<!--							  >-->
+<!--							</li>-->
+<!--						{% else %}-->
+<!--							<li class="page-item disabled">-->
+<!--							  <a class="page-link">&raquo;</a>-->
+<!--							</li>-->
+<!--						{% endif %}-->
+<!--					  </ul>-->
+<!--				  {% endif %}-->
+<!--				</nav>-->
+<!--			</div>-->
+<!--		</div>-->
+<!--	</section>-->
+{% endblock content %}

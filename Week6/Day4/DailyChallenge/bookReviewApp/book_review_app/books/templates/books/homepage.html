@@ -1,0 +1,26 @@
+{% extends 'books/partials/base.html' %}
+
+{% block content %}
+    {% include "books/partials/navbar.html" %}
+
+    <div class="container">
+        <h1>Books</h1>
+        <div class="row">
+            {% for book in books %}
+                <div class="col-sm-4">
+                    <div class="card" style="width: 18rem;">
+                      <a href="{% url 'book' book.slug %}"><img class="card-img-top" src="{{ book.thumbnail_url }}" alt="{{ book.title }}"></a>
+                      <div class="card-body">
+                          <a href="{% url 'book' book.slug %}"><h5 class="card-title">{{ book.title }}</h5></a>
+                        <p class="card-text">Author: {{ book.author }}</p>
+                        <p class="card-text">Published on {{ book.published_date }}</p>
+                        <p class="card-text">Pages: {{ book.page_count }}</p>
+                        <p class="card-text">Categories: {{ book.categories }}</p>
+                        <p class="card-text">Description: {{ book.description|slice:":150" }}...</p>
+                      </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock content %}

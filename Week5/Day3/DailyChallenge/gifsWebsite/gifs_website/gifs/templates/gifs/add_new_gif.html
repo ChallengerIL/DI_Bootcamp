@@ -1,0 +1,27 @@
+{% extends 'gifs/base.html' %}
+
+{% block content %}
+
+    <div class="container">
+        <h1>Add new GIF</h1>
+        <form action="" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                {{ form.title }}
+            </div>
+            <div class="form-group">
+                {{ form.url }}
+            </div>
+            <div class="form-group">
+                {{ form.uploader_name }}
+            </div>
+            <div class="form-group">
+                {{ form.categories }}
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Submit">
+            </div>
+            {{ form.errors }}
+        </form>
+    </div>
+{% endblock content %}

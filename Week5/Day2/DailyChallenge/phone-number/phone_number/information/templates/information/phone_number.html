@@ -1,0 +1,20 @@
+{% extends 'information/base.html' %}
+
+{% block title %}
+    {% if person %}
+        {{ person.phone_number }}
+    {% else %}
+        Not found
+    {% endif %}
+{% endblock title %}
+
+{% block content %}
+    {% if person %}
+        <h1>{{ person.phone_number }}</h1>
+        <p>Name: {{ person.name }}</p>
+        <p>Email: {{ person.email }}</p>
+        <p>Address: {{ person.address }}</p>
+    {% else %}
+        <h1>The phone number has not been found in the database</h1>
+    {% endif %}
+{% endblock content %}

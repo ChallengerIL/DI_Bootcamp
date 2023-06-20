@@ -1,0 +1,14 @@
+{% extends 'info/base.html' %}
+{% block content %}
+    {% for person in people %}
+        <ul>
+            <li>
+                <a href="{% url 'person' person.id %}">
+                    <p>Name: {{ person.name }}</p>
+                </a>
+                <p>Age: {{ person.age }}</p>
+                <p>Country: {{ person.country }}</p>
+            </li>
+        </ul>
+    {% endfor %}
+{% endblock content %}

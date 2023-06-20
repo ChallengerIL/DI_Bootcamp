@@ -1,0 +1,12 @@
+{% extends 'rent/base.html' %}
+
+{% block content %}
+    <div class="container">
+        <h1>All rentals</h1>
+        <ol>
+            {% for rental in rentals %}
+                <li><a href="{% url 'rental' rental.id %}">{{ rental }}</a></li>
+            {% endfor %}
+        </ol>
+    </div>
+{% endblock content %}

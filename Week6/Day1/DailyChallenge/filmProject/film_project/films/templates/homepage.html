@@ -1,0 +1,39 @@
+{% extends 'partials/base.html' %}
+
+{% block content %}
+    {% include "partials/navbar.html" %}
+    <div class="container">
+        <h1>New Films</h1>
+        <div class="row">
+            {% for film in films %}
+                <div class="col-sm-4">
+                    <div class="card" style="width: 18rem;">
+                      <div class="card-body">
+                          <h5 class="card-title">{{ film.title }} BY
+                              {% for director in film.director.all %}
+                                {{ director }}
+                              {% endfor %}
+                          </h5>
+                        <p class="card-text">Date: {{ film.release_date }}</p>
+                        <p class="card-text">Category:
+                            {% for category in film.category.all %}
+                                {{ category }}
+                              {% endfor %}
+                        </p>
+                        <p class="card-text">Country: {{ film.created_in_country }}</p>
+                        {% if film.reviews.count > 0 %}
+                            <p class="card-text">Reviews:</p>
+                            <ul>
+                                {% for review in film.reviews.all %}
+                                    <li>{{ review.review_text }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                        <p><a href="{% url 'add_review' %}" class="card-link">Add a Review</a></p>
+                      </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock content %}

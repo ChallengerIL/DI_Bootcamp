@@ -1,0 +1,8 @@
+{% extends 'gifs/base.html' %}
+
+{% block content %}
+    <h1>{{ gif.title }}</h1>
+    <img src="{{ gif.url }}" alt="{{ gif.title }}">
+    <p>Uploaded by: {{ gif.uploader_name }}</p>
+    <p>Date: {{ gif.created_at }}</p>
+{% endblock content %}
