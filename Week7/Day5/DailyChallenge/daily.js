@@ -39,7 +39,7 @@ function bottlesOfBeer() {
         console.log(`Take ${decrement} down, pass ${noun} around`);
         totalBottles = totalBottles - decrement;
         console.log(`${totalBottles} bottles of beer on the wall`);
-        increment += 1;
+        increment++;
     }
     
 }
