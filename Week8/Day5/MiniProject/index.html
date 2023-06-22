@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robo-Friends Search</title>
+    <link href="https://fonts.cdnfonts.com/css/sega-logo-font" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #6556cd;
+            background-image: url("circuit-pattern.png");
+        }
+        
+        nav {
+            align-items: center;
+            background-color: #6adf82;
+            display: flex;
+            justify-content: flex-start;
+            padding: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        #logo a {
+            color: #303952;
+            font-family: 'SEGA LOGO FONT', sans-serif;
+            font-size: 2rem;
+            margin-right: 2rem;
+        }
+
+        input {
+            background-color: #c8d6e6;
+            border: 1px solid #6556cd;
+            padding: .4rem;
+            width: 50%;
+        }
+        main {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .robot {
+            background-color: #4fc1c5;
+            background-image: url("card-pattern.png");
+            border-radius: 3%;
+            height: 400px;
+            margin: 1rem;
+            padding: 1rem;
+            width: 300px;
+        }
+
+        .robot img {
+            background-color: #303952;
+            border-radius: 100%;
+            max-width: 100%;
+            margin-bottom: 1rem;
+        }
+
+        .name {
+            font-size: 1.7rem;
+            font-weight: bold;
+            margin-bottom: .5rem;
+        }
+
+        .email {
+            color: #353e42;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div id="logo"><a href="/">ROBOFRIENDS</a></div>
+        <input type="text" onkeypress="search(event)" placeholder="Search Robots">
+    </nav>
+    <main>
+
+    </main>
+</body>
+<script src="miniproject.js"></script>
+</html>
