@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Wars Web App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <style>
+        @keyframes move-background {
+            from {
+                -webkit-transform: translate3d(0px, 0px, 0px);
+            }
+            to { 
+                -webkit-transform: translate3d(1000px, 0px, 0px);
+            }
+        }
+        @-webkit-keyframes move-background {
+            from {
+                -webkit-transform: translate3d(0px, 0px, 0px);
+            }
+            to { 
+                -webkit-transform: translate3d(1000px, 0px, 0px);
+            }
+        }
+
+        @-moz-keyframes move-background {    
+            from {
+                -webkit-transform: translate3d(0px, 0px, 0px);
+            }
+            to { 
+                -webkit-transform: translate3d(1000px, 0px, 0px);
+            }
+        }
+
+            @-webkit-keyframes move-background {
+            from {
+                -webkit-transform: translate3d(0px, 0px, 0px);
+            }
+            to { 
+                -webkit-transform: translate3d(1000px, 0px, 0px);
+            }
+        }
+
+        .background-container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            position: fixed;
+            top: 0;
+            left:0;
+            bottom: 0;
+            right: 0;
+        }
+
+        .stars {
+            background: black url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png) repeat;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            display: block;
+            z-index: 0;
+        }
+
+        .twinkling{
+            width:10000px;
+            height: 100%;
+            background: transparent url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/twinkling.png") repeat;
+            background-size: 1000px 1000px;
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            z-index: 2;
+            
+            -moz-animation:move-background 70s linear infinite;
+            -ms-animation:move-background 70s linear infinite;
+            -o-animation:move-background 70s linear infinite;
+            -webkit-animation:move-background 70s linear infinite;
+            animation:move-background 70s linear infinite;
+            
+        }
+        
+        .info-container {
+            align-items: center;
+            border: 2px solid yellow;
+            border-radius: 20px;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            height: 300px;
+            justify-content: center;
+            position: relative;
+            top: 100px;
+            width: 600px;
+            z-index: 3;
+        }
+
+        .button {
+            position: relative;
+            top: 120px;
+            z-index: 3;
+        }
+
+        button {
+            background-color: grey;
+            border: 2px solid yellow;
+            border-radius: 10px;
+            color: white;
+            font-size: 1.3rem;
+            font-weight: bold;
+            height: 2.5rem;
+            width: 11rem;
+        }
+
+        .fa-spinner {
+            font-size: 6rem;
+        }
+
+        p {
+            color: white;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-container">
+        <div class="stars"></div>
+        <div class="twinkling"></div>
+        <div class="info-container">
+            
+        </div>
+        <div class="button">
+            <button>Find Someone</button>
+        </div>
+    </div>
+</body>
+<script src="starwars.js"></script>
+</html>
