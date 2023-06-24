@@ -42,13 +42,13 @@ function showLoading() {
     infoContainer.appendChild(div);
     infoContainer.appendChild(p);
 
-    return new Promise(resolve => {
-        setTimeout(function () {
-            div.style.display = 'none';
-            p.style.display = 'none';
-            resolve();
-        }, 1000);
-    });
+    // return new Promise(resolve => {
+    //     setTimeout(function () {
+    //         div.style.display = 'none';
+    //         p.style.display = 'none';
+    //         resolve();
+    //     }, 1000);
+    // });
 }
 
 const getCharacter = async () => {
@@ -89,12 +89,14 @@ button.addEventListener("click", function (event) {
     infoContainer.textContent = "";
 
     ( async () => {
-        await showLoading();
+        showLoading();
+        // await showLoading();
         let character = await getCharacter();
 
         if (character instanceof Error) {
             const error = document.createElement("h1");
             error.textContent = character.message;
+            infoContainer.textContent = "";
             infoContainer.appendChild(error);
         } else {
             character = character.properties;
@@ -120,6 +122,7 @@ button.addEventListener("click", function (event) {
             const homeWorld = document.createElement("p");
             homeWorld.textContent = `Home World: ${planet}`;
 
+            infoContainer.textContent = "";
             infoContainer.appendChild(name);
             infoContainer.appendChild(height);
             infoContainer.appendChild(gender);
