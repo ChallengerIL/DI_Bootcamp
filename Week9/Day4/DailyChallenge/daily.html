@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            align-items: center;
+            background-image: url("https://previews.123rf.com/images/catarena/catarena1601/catarena160100013/51067507-a-collection-of-various-foreign-currencies-from-countries-spanning-the-globe-many-different.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            align-items: center;
+            background: rgba(70, 1, 97, .4);
+            border-radius: 5px;
+            color: #fff;
+            display: flex;
+            font-size: 1.5rem;
+            flex-direction: column;
+            height: 80vh;
+            justify-content: space-around;
+            margin-top: 10vh;
+            width: 50vw;
+        }
+
+        select {
+            background-color: rgba(70, 1, 97, .4);
+            color: #fff;
+            width: 60%;
+        }
+
+        #amount {
+            background-color: rgba(70, 1, 97, .4);
+            color: #fff;
+            height: 1.5rem;
+            text-align: center;
+            width: 70%;
+        }
+
+        #convert {
+            background-color: rgba(70, 1, 97, .4);
+            border: 2px solid black;
+            border-radius: 5px;
+            color: #fff;
+            padding: .2rem;
+        }
+
+        output {
+            background-color: rgba(70, 1, 97, .4);
+            text-align: center;
+            width: 50%;
+        }
+
+        #switch {
+            background-image: url('https://cdn-icons-png.flaticon.com/512/60/60978.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-color: rgba(255, 255, 255, 0.4);
+            height: 40px;
+            width: 40px;
+        }
+
+        #switch:active {
+            background-color: rgba(16, 14, 14, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Currency Converter</h1>
+        <label for="from">From:</label>
+
+        <select name="from" id="from">
+        </select>
+
+        <div class="switch-button">
+            <img id="switch" onClick="switchCurrencies()" />
+        </div>
+
+        <label for="to">To:</label>
+        <select name="to" id="to">
+        </select>
+
+        <label for="amount">Amount:</label>
+        <div class="amount-form">
+            <input id="amount" type="number" min="1" name="amount" value="1">
+            <button id="convert" type="submit">convert</button>
+        </div>
+        <output name="output"></output>
+    </div>
+</body>
+<script src="daily.js"></script>
+</html>
