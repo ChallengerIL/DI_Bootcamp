@@ -13,16 +13,3 @@ app.get('/', (req, res) => {
 })
 
 app.listen(3000);
-
-// const express = require('express');
-// let cors = require("cors");
-// const app = express();
-
-// app.use(cors());
-
-// app.get('/', (req, res) => {
-//     // console.log(req.params)
-//     // res.send(req.params)
-// })
-
-// app.listen(3000);
