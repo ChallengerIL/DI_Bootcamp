@@ -1,4 +1,4 @@
-// Exercise 4 : Welcome
+// Exercise 7 : Welcome
 // Instructions
 // John has just signed in to your website and you want to welcome him.
 

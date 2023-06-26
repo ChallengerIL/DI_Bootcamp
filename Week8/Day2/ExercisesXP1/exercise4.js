@@ -1,26 +1,9 @@
-// Exercise 4 : Colors
+// Exercise 4 : Find The Sum
 // Instructions
-// Using this array :
+// Create a one line function (ie. an arrow function) that receives two numbers as parameters and returns the sum.
 
-// const colors = ["Blue", "Green", "Red", "Orange", "Violet", "Indigo", "Yellow"];
-// Write a JavaScript program that displays the colors in the following order : “1# choice is Blue.” “2# choice is Green.” “3# choice is Red.” ect…
-// Check if at least one element of the array is equal to the value “Violet”. If yes, console.log("Yeah"), else console.log("No...")
-// Hint : Use the array methods taught in class. Look at the lesson Array Methods.
-
-const colors = ["Blue", "Green", "Red", "Orange", "Violet", "Indigo", "Yellow"];
-
-colors.forEach(function (color, index) {
-  console.log(`${index+1}# choice is ${color}.`);
-});
-
-if (colors.some((color)=> { 
-    if (color == "Violet") {
-        return true;
-    } else {
-        return false;
-    }
-})) {
-    console.log("Yeah");
-} else {
-    console.log("No...");
-}
+const sumFunc = (x, y) => {
+    return x + y;
+  }
+  
+console.log(sumFunc(5,2));

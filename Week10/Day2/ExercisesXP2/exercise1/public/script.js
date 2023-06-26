@@ -7,9 +7,7 @@
 // In the script.js file, fetch the server at the route /users and get the response.
 // The response should be the JSON Object. Console.log this object and display it on the DOM.
 
-fetch('http://localhost:3000/users')    
-  .then(response => response.json())
-  .then(data => console.log(data));
+let body = document.querySelector('body');
 
 const getJson = async () => {
     try {
@@ -18,6 +16,9 @@ const getJson = async () => {
         
         if (response.ok){
             data = await response.json();
+
+            console.log(JSON.stringify(data))
+            body.innerText = JSON.stringify(data);
         } else {
             throw new Error("Something went wrong...")
         }
@@ -28,8 +29,4 @@ const getJson = async () => {
     }
 }
 
-const data = getJson();
-console.log(data);
-
-let body = document.querySelector('body');
-body.innerHTML = data;
+let data = getJson();
