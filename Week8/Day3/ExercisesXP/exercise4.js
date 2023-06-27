@@ -1,26 +1,39 @@
-// Exercise 4 : Employees #2
+// Exercise 4 : Employees
 // Instructions
-// Using this object:
+// Using this array:
 
-// const students = [{name: "Ray", course: "Computer Science", isPassed: true}, 
-//                {name: "Liam", course: "Computer Science", isPassed: false}, 
-//                {name: "Jenner", course: "Information Technology", isPassed: true}, 
-//                {name: "Marco", course: "Robotics", isPassed: true}, 
-//                {name: "Kimberly", course: "Artificial Intelligence", isPassed: false}, 
-//                {name: "Jamie", course: "Big Data", isPassed: false}];
-// Using the filter() method, create a new array, containing the students that passed the course.
-// Bonus : Chain the filter method with a forEach method, to congratulate the students with their name and course name (ie. “Good job Jenner, you passed the course in Information Technology”, “Good Job Marco you passed the course in Robotics” ect…)
+// const users = [{ firstName: 'Bradley', lastName: 'Bouley', role: 'Full Stack Resident' },
+//              { firstName: 'Chloe', lastName: 'Alnaji', role: 'Full Stack Resident' },
+//              { firstName: 'Jonathan', lastName: 'Baughn', role: 'Enterprise Instructor' },
+//              { firstName: 'Michael', lastName: 'Herman', role: 'Lead Instructor' },
+//              { firstName: 'Robert', lastName: 'Hajek', role: 'Full Stack Resident' },
+//              { firstName: 'Wes', lastName: 'Reid', role: 'Instructor'},
+//              { firstName: 'Zach', lastName: 'Klabunde', role: 'Instructor'}];
+// Using the map() method, push into a new array the firstname of the user and a welcome message. You should get an array that looks like this :
+// const welcomeStudents = ["Hello Bradley", "Hello Chloe", "Hello Jonathan", "Hello Michael", "Hello Robert", "Hello Wes", "Hello Zach"]
 
-const students = [{name: "Ray", course: "Computer Science", isPassed: true}, 
-               {name: "Liam", course: "Computer Science", isPassed: false}, 
-               {name: "Jenner", course: "Information Technology", isPassed: true}, 
-               {name: "Marco", course: "Robotics", isPassed: true}, 
-               {name: "Kimberly", course: "Artificial Intelligence", isPassed: false}, 
-               {name: "Jamie", course: "Big Data", isPassed: false}];
+
+// 2. Using the filter() method, create a new array, containing only the Full Stack Residents.
+
+
+// 3. Bonus : Chain the filter method with a map method, to return an array containing only the lastName of the Full Stack Residents.
+
+const users = [{ firstName: 'Bradley', lastName: 'Bouley', role: 'Full Stack Resident' },
+            { firstName: 'Chloe', lastName: 'Alnaji', role: 'Full Stack Resident' },
+            { firstName: 'Jonathan', lastName: 'Baughn', role: 'Enterprise Instructor' },
+            { firstName: 'Michael', lastName: 'Herman', role: 'Lead Instructor' },
+            { firstName: 'Robert', lastName: 'Hajek', role: 'Full Stack Resident' },
+            { firstName: 'Wes', lastName: 'Reid', role: 'Instructor'},
+            { firstName: 'Zach', lastName: 'Klabunde', role: 'Instructor'}];
 
 // 1
-const passed = students.filter(student => student.isPassed);
-console.log(passed);
+const welcomeStudents = users.map((user) => "Hello " + user.firstName);
+console.log(welcomeStudents);
 
 // 2
-const congratulations = students.filter(student => student.isPassed).forEach(student => console.log(`Good job ${student.name}, you passed the course in ${student.course}`));
+const filteredUsers = users.filter(user => user.role == "Full Stack Resident");
+console.log(filteredUsers);
+
+// 3
+const bonusUsers = users.filter(user => user.role == "Full Stack Resident").map((user) => user.lastName);
+console.log(bonusUsers);

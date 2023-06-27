@@ -1,26 +1,26 @@
-// Exercise 1 : Analyzing
+// Exercise 1 : Colors
 // Instructions
-// Analyze these pieces of code before executing them. What will be the outputs ?
-// ------1------
-// const fruits = ["apple", "orange"];
-// const vegetables = ["carrot", "potato"];
+// Using this array :
 
-// const result = ['bread', ...vegetables, 'chicken', ...fruits];
-// console.log(result);
+// const colors = ["Blue", "Green", "Red", "Orange", "Violet", "Indigo", "Yellow"];
+// Write a JavaScript program that displays the colors in the following order : “1# choice is Blue.” “2# choice is Green.” “3# choice is Red.” ect…
+// Check if at least one element of the array is equal to the value “Violet”. If yes, console.log("Yeah"), else console.log("No...")
+// Hint : Use the array methods taught in class. Look at the lesson Array Methods.
 
-// ------2------
-// const country = "USA";
-// console.log([...country]);
+const colors = ["Blue", "Green", "Red", "Orange", "Violet", "Indigo", "Yellow"];
 
-// ------Bonus------
-// let newArray = [...[,,]];
-// console.log(newArray);
+colors.forEach(function (color, index) {
+  console.log(`${index+1}# choice is ${color}.`);
+});
 
-// 1
-// Everything will be unpacked into a regular array, no nesting.
-
-// 2
-// The string will be converted to an array of characters from the original string.
-
-// Bonus
-// We will get an array of two undefined values, because the original array doesn't contain anything but two commas.
+if (colors.some((color)=> { 
+    if (color == "Violet") {
+        return true;
+    } else {
+        return false;
+    }
+})) {
+    console.log("Yeah");
+} else {
+    console.log("No...");
+}

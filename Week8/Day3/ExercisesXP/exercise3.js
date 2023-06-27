@@ -1,13 +1,26 @@
-// Exercise 3 : Star Wars
+// Exercise 3 : Analyzing
 // Instructions
-// Using this array const epic = ['a', 'long', 'time', 'ago', 'in a', 'galaxy', 'far far', 'away'];
+// Analyze these pieces of code before executing them. What will be the outputs ?
+// ------1------
+// const fruits = ["apple", "orange"];
+// const vegetables = ["carrot", "potato"];
 
-// Use the reduce() method to combine all of these into a single string.
+// const result = ['bread', ...vegetables, 'chicken', ...fruits];
+// console.log(result);
 
-const epic = ['a', 'long', 'time', 'ago', 'in a', 'galaxy', 'far far', 'away'];
+// ------2------
+// const country = "USA";
+// console.log([...country]);
 
-let string = epic.reduce((first, second) => {
-  return `${first} ${second}`;
-});
+// ------Bonus------
+// let newArray = [...[,,]];
+// console.log(newArray);
 
-console.log(string)
+// 1
+// Everything will be unpacked into a regular array, no nesting.
+
+// 2
+// The string will be converted to an array of characters from the original string.
+
+// Bonus
+// We will get an array of two undefined values, because the original array doesn't contain anything but two commas.

@@ -1,4 +1,4 @@
-// Exercise 6 : Bank Details
+// Exercise 5 : Bank Details
 // Instructions
 // In this exercise, you have to decide which type of variables you have to use (ie. let or const):
 

@@ -1,39 +1,17 @@
-// Exercise 2 : Employees
+// Exercise 2 : Colors #2
 // Instructions
-// Using this array:
+// Using these arrays :
 
-// const users = [{ firstName: 'Bradley', lastName: 'Bouley', role: 'Full Stack Resident' },
-//              { firstName: 'Chloe', lastName: 'Alnaji', role: 'Full Stack Resident' },
-//              { firstName: 'Jonathan', lastName: 'Baughn', role: 'Enterprise Instructor' },
-//              { firstName: 'Michael', lastName: 'Herman', role: 'Lead Instructor' },
-//              { firstName: 'Robert', lastName: 'Hajek', role: 'Full Stack Resident' },
-//              { firstName: 'Wes', lastName: 'Reid', role: 'Instructor'},
-//              { firstName: 'Zach', lastName: 'Klabunde', role: 'Instructor'}];
-// Using the map() method, push into a new array the firstname of the user and a welcome message. You should get an array that looks like this :
-// const welcomeStudents = ["Hello Bradley", "Hello Chloe", "Hello Jonathan", "Hello Michael", "Hello Robert", "Hello Wes", "Hello Zach"]
+// const colors = ["Blue", "Green", "Red", "Orange", "Violet", "Indigo", "Yellow"];
+// const ordinal = ["th","st","nd","rd"];
+// Write a JavaScript program that displays the colors in the following order : “1st choice is Blue .” “2nd choice is Green.” “3rd choice is Red.” ect…
+// Hint : Use the array methods taught in class and ternary operator.
 
+const colors = ["Blue", "Green", "Red", "Orange", "Violet", "Indigo", "Yellow"];
+const ordinal = ["th","st","nd","rd"];
 
-// 2. Using the filter() method, create a new array, containing only the Full Stack Residents.
-
-
-// 3. Bonus : Chain the filter method with a map method, to return an array containing only the lastName of the Full Stack Residents.
-
-const users = [{ firstName: 'Bradley', lastName: 'Bouley', role: 'Full Stack Resident' },
-            { firstName: 'Chloe', lastName: 'Alnaji', role: 'Full Stack Resident' },
-            { firstName: 'Jonathan', lastName: 'Baughn', role: 'Enterprise Instructor' },
-            { firstName: 'Michael', lastName: 'Herman', role: 'Lead Instructor' },
-            { firstName: 'Robert', lastName: 'Hajek', role: 'Full Stack Resident' },
-            { firstName: 'Wes', lastName: 'Reid', role: 'Instructor'},
-            { firstName: 'Zach', lastName: 'Klabunde', role: 'Instructor'}];
-
-// 1
-const welcomeStudents = users.map((user) => "Hello " + user.firstName);
-console.log(welcomeStudents);
-
-// 2
-const filteredUsers = users.filter(user => user.role == "Full Stack Resident");
-console.log(filteredUsers);
-
-// 3
-const bonusUsers = users.filter(user => user.role == "Full Stack Resident").map((user) => user.lastName);
-console.log(bonusUsers);
+colors.forEach((color, index) => { 
+    index++;
+    let ordinalIndex = index > 3 ? 0 : index;
+    console.log(`${index}${ordinal[ordinalIndex]} choice is ${color}.`)
+}); 
