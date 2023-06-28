@@ -104,17 +104,17 @@ app.post('/login',(req,res)=>{
     .where({username:username})
     .then(data => {
         if(data.length>0){
-        if(password_hash.check(password, data[0].password)){
-            
-            db('login')
-            .insert({ username: username, password: password})
-            .then(res.send(
-                    {
-                        message:`OK Hello your username is ${username}`
-                    }
-                    )
-            )
-        }
+            if(password_hash.check(password, data[0].password)){
+                
+                db('login')
+                .insert({ username: username, password: password})
+                .then(res.send(
+                        {
+                            message:`OK Hello your username is ${username}`
+                        }
+                        )
+                )
+            }
         else{
             res.send({message:'Wrong password'})
         }
