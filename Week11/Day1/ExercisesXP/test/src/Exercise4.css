@@ -1,0 +1,16 @@
+h1 {
+    background-color: lightblue;
+    color: red;
+}
+
+img {
+    max-width: 600px;
+}
+
+.para {
+    background-color: #282c34;
+    color: white;
+    padding: 40px;
+    font-family: Arial;
+    text-align: center;
+}
