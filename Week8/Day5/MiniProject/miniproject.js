@@ -130,14 +130,12 @@ for (let robot of robots) {
 }
 
 function search(event) {
-    if (event.keyCode == 13) {
-        const input = document.querySelector('input');
-        let result = robots.filter(robot => robot.name.toLowerCase().includes(input.value));
-        
-        main.innerHTML = '';
-        
-        for (let robot of result) {
-            addRobot(robot);
-        }
+    const input = document.querySelector('input');
+    let result = robots.filter(robot => robot.name.toLowerCase().includes(input.value));
+    
+    main.innerHTML = '';
+    
+    for (let robot of result) {
+        addRobot(robot);
     }
 }

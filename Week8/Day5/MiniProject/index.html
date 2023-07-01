@@ -16,6 +16,7 @@
         body {
             background-color: #6556cd;
             background-image: url("circuit-pattern.png");
+            min-height: 100vh;
         }
         
         nav {
@@ -81,7 +82,7 @@
 <body>
     <nav>
         <div id="logo"><a href="/">ROBOFRIENDS</a></div>
-        <input type="text" onkeypress="search(event)" placeholder="Search Robots">
+        <input type="text" onkeydown="search(event)" placeholder="Search Robots">
     </nav>
     <main>
 
