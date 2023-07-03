@@ -26,7 +26,7 @@ class FormComponent extends Component {
               value="female" onChange={this.handleChange} />
           Female<br />
           <label>Select your destination</label><br />
-          <select name="destination" onChange={this.handleChange}>
+          <select name="destination" value={this.state.destination} onChange={this.handleChange}>
               <option value="" disabled selected>
                   -- Please Choose a destination --
               </option>
