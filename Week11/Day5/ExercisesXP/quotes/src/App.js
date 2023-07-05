@@ -9,7 +9,7 @@ export default class App extends Component {
       quote: "",
       author: "",
       color: "",
-      index: quotes.length++,
+      index: quotes.length + 1,
       slide: false
     }
   }
