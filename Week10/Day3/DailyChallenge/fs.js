@@ -24,21 +24,34 @@ fs.readFile('RightLeft.txt', 'utf-8', function (err, data) {
         return
     }
     
+    let position = 0;
     let counter = 0;
 
     // 1
-    for (let symbol of data) {
-        if (symbol == ">") {
-            counter++;
-        } else if (symbol == "<") {
-            counter -= 1;
-        }
-    }
+    // for (let symbol of data) {
+    //     if (symbol === ">") {
+    //         position++;
+    //     } else if (symbol === "<") {
+    //         position--;
+    //     }
+    // }
+
+    // let direction = 'same spot';
+    // position > 0 ? direction = 'right' : direction = 'left';
+    // console.log(`${position} steps to the ${direction}`);
 
     // 2
-    // The number of steps is always gonna be positive. How can we possibly hit -1?
-
-    console.log(`Total steps: ${counter}`);
-
+    for (let symbol of data) {
+        counter++;
+        if (symbol === ">") {
+            position++;
+        } else if (symbol === "<") {
+            position--;
+        }
+        if (position == -1) {
+            console.log(`Total steps: ${position}`);
+            console.log(`The first time on the left side is in: ${counter} steps`);
+            break
+        }
+    }
 });
-

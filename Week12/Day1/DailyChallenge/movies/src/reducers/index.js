@@ -14,8 +14,12 @@ function movieReducer(state=movieList, action) {
 }
   
 function selectedMovieReducer (state=null, action) {
-    if (action.type === MOVIE_SELECTED) return action.movie;
-    return state;
+    switch (action.type) {
+        case MOVIE_SELECTED:
+            return action.movie;
+        default:
+            return state;
+    }
 };
 
 const rootReducer = combineReducers({
