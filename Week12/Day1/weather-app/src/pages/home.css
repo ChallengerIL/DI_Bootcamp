@@ -1,0 +1,30 @@
+.search {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+    position: relative;
+  }
+  
+  .search-input input {
+    border-radius: 5px;
+    font-size: 1rem;
+    padding: 5px;
+  }
+  
+  .search-input input:focus {
+    border: 1px solid #0022ff;
+    outline: none;
+  }
+  
+  .dropdown-list {
+    background-color: #fff;
+    box-shadow: 0 0 8px #ddd;
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+    max-height: 300px;
+    overflow-y: scroll;
+    position: absolute;
+    max-width: 180px;
+  }
